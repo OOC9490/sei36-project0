@@ -9,8 +9,9 @@
     <script src="js/main.js"></script>
 </head>
 <body>
-    <audio id="userInteract" src="assets/menu_change.wav"></audio>
-    <audio id="boot" src="assets/boot.wav"></audio>
+    <audio src="assets/menu_change.wav"></audio>
+    <audio src="assets/boot.wav"></audio>
+    <audio src="assets/smw_kick.wav"></audio>
     <div class="container">
         <header>
             <h1>Lawrence's Web Arcade</h1>
@@ -23,6 +24,7 @@
             </nav>
         </header>
         <div id="results">
+            <div class="closebutton" value="scoreboard">X</div>
             <table id="score">
                 <tr>
                     <th class="rounds">Rounds</th>
@@ -30,21 +32,20 @@
                 </tr>
             </table>
             <p>*Displays the results for the last 15 rounds</p>
-            <div class="closebutton">&uarr;</div>
         </div>
         <div class="endGameOverlay">
             <div class="buttonholder">
                 <div id="endGame"></div>
-                <button>Play Again</button>
-                <button>View Score</button>
+                <button value="restart">Play Again</button>
+                <button value="scoreboard">View Score</button>
             </div>
         </div>
         <div class="buttonholder">
-            <button id="gamestart">Start!</button>
-            <button class="restart">Restart</button>
-            <button class="showscore">Scoreboard</button>
+            <button value="gamestart" id="gamestart">Start!</button>
+            <button value="restart" class="ingame disabled">Restart</button>
+            <button value="scoreboard" class="ingame disabled">Scoreboard</button>
         </div>
-        <div id="gameboard">
+        <div id="gameboard" class="disabled">
             <div class="box" id="147"></div>
             <div class="box" id="15"></div>
             <div class="box" id="168"></div>
@@ -54,9 +55,8 @@
             <div class="box" id="348"></div>
             <div class="box" id="35"></div>
             <div class="box" id="367"></div>
-            <div class="uiMessages">Test</div>
         </div>
-        
+        <div id="uimessages"></div>        
         <footer>
             &copy; Lawrence Carreon 2020
         </footer>
