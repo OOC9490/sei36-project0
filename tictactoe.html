@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Project 0 Arcade - Tic Tac Toe</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/jquery-3.4.1.js"></script>
+    <script src="js/main.js"></script>
+</head>
+<body>
+    <audio id="userInteract" src=""></audio>
+    <audio id="gameStart" src=""></audio>
+    <div class="container">
+        <header>
+            <h1>Lawrence's Web Arcade</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tictactoe.html">Tic Tac Toe</a></li>
+                    <li><a href="pong.html">Pong</a></li>
+                </ul>
+            </nav>
+        </header>
+        <div id="results">
+            <table id="score">
+                <tr>
+                    <th class="rounds">Rounds</th>
+                    <th class="winners">Winner</th>
+                </tr>
+            </table>
+            <p>*Displays the results for the last 15 rounds</p>
+            <div class="closebutton">&uarr;</div>
+        </div>
+        <div class="endGameOverlay">
+            <div class="buttonholder">
+                <div id="endGame"></div>
+                <button>Play Again</button>
+                <button>View Score</button>
+            </div>
+        </div>
+        <div class="buttonholder">
+            <button id="gamestart">Start!</button>
+            <button class="restart">Restart</button>
+            <button class="showscore">Scoreboard</button>
+        </div>
+        <div id="gameboard">
+            <div class="box" id="147"></div>
+            <div class="box" id="15"></div>
+            <div class="box" id="168"></div>
+            <div class="box" id="24"></div>
+            <div class="box" id="2578"></div>
+            <div class="box" id="26"></div>
+            <div class="box" id="348"></div>
+            <div class="box" id="35"></div>
+            <div class="box" id="367"></div>
+            <div class="uiMessages">Test</div>
+        </div>
+        
+        <footer>
+            &copy; Lawrence Carreon 2020
+        </footer>
+    </div>
+</body>
+</html>
