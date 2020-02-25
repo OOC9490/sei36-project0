@@ -89,7 +89,7 @@ button:hover{
 }
 
 .active{
-    color: lightskyblue;
+    color: navy;
 }
 
 .disabled, .used{
