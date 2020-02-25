@@ -101,14 +101,14 @@ const tictactoe = {
 //object for interacting with the user interface
 const ui ={
     players: ["X", "O", "DRAW"],
-    $audio: null,
+    $audio: {},
     numberOfGames: 1,
 
     startGame: function(){
         $('#uimessages').html(`Loading...`).fadeIn(250);
         setTimeout(function(){
             $(".ingame, #gameboard, .box").css({"opacity":1}).removeClass("disabled");
-            ui.$audio[1].play();
+            ui.$audio["boot"].trigger("play");
             ui.playerTurnMsg(tictactoe.currentPlayer);
             tictactoe.started = true;
             tictactoe.aiTurn();
@@ -130,12 +130,16 @@ const ui ={
     endOfGameMsg( player, draw ){
         $("#gameboard").addClass("disabled");
         $(".endGameOverlay").fadeIn(1000).removeClass("disabled");
+        let gameState = "";
         if( draw ){
             $("#endGame").html("It is a draw!<br>Play again?");
             player = 2;
+            gameState = "draw";
         }else{
             $("#endGame").html(`${this.players[player]} won!<br>Play again?`);
+            gameState = "win";
         };
+        this.$audio[gameState].trigger("play");
         this.updateScore( this.numberOfGames, player )
     },
 
@@ -183,19 +187,21 @@ const ui ={
 };
 
 $(document).ready(function(){
-    ui.$audio = $("audio");
+    $("audio").each(function(){
+        ui.$audio[$(this).attr("id")] = $(this);
+    });
     $("button:not(#gamestart), .closebutton").on("click", function(){
-        if(tictactoe.started){ui.$audio[0].play();};
+        if(tictactoe.started){ui.$audio["press"].trigger("play");};
         ui.buttonCheck( $(this).attr("value") );
     });
 
     $("#gamestart").on("click", function(){
-        $(this).css({"display":"none"}).fadeOut(500);
+        $(this).css({"display":"none"});
         ui.buttonCheck( $(this).attr("value") );
     });
     
     $(".box").on("click", function(){
-        ui.$audio[2].play();
+        ui.$audio["play"].trigger("play");
         if( tictactoe.started && $(this).hasClass("used") === false){
             ui.drawSymbol( tictactoe.currentPlayer, $(this));
             tictactoe.currentMoves += 1;
