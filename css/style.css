@@ -18,14 +18,21 @@ footer{
     font-size: 1.5em;
     background-color: black;
     width: 100%;
+    height: 75px;
     box-sizing: border-box;
     z-index: 5;
 }
 
-/* Home page */
-#playstartup{
-    opacity: 0;
+header{
+    background-color: #000;
+    height: 110px;
 }
+
+canvas{
+    background-color: #000;
+}
+
+/* Home page */
 
 /* tic tac toe (mostly) */
 
