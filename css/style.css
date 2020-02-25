@@ -123,6 +123,14 @@ button:hover{
     font-size: 2em;
 }
 
+.clickbait button:hover{
+    color: #ff0000;
+}
+
+.clickbait button:focus{
+    color: #24bd24;
+}
+
 .welcome{
     font-size: 5em;
     text-align: center;
