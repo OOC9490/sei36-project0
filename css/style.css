@@ -186,9 +186,12 @@ p{
 }
 
 #gameboard{
-    display: flex;
+    display: grid;
+    grid-template-columns: 33% 33% 33%;
+    grid-template-rows: 33% 33% 33%;
+    justify-items: center;
+    align-items: center;
     width: 50%;
-    flex-flow: row wrap;
     margin: 0 auto;
     justify-content: space-evenly;
     box-sizing: border-box;
@@ -196,15 +199,16 @@ p{
 }
 
 .box{
+    display: grid;
+    grid-template-columns: 80%;
+    justify-content: center;
+    align-items: center;
     border: 2px solid #fff;
-    width: 100px;
-    height: 100px;
-    display: inline-block;
+    width: 80%;
+    min-height: 80px;
     border-radius: 1rem;
     font-family: "Press Start 2P", Arial, Helvetica, sans-serif;
-    text-align: center;
-    vertical-align: middle;
-    font-size: 4em;
+    font-size: 3em;
     box-sizing: border-box;
     margin: 0.5rem;
     opacity: 0;
@@ -278,18 +282,15 @@ p{
     height: 100%;
     top: 0;
     left: 0;
-    right: 0;
-    bottom: 0;
     background-color: rgba(0,0,0,0.5);
     z-index: 10;
-    text-align: center;
 }
 
 .endGameOverlay .buttonholder{
-    width: 500px;
+    width: 50%;
     position: absolute;
-    top: calc(50vh - 92px);
-    left: calc(50vw - 250px);
+    top: 33%;
+    left: 25%;
 }
 
 .endGameOverlay .buttonholder button{

@@ -10,7 +10,7 @@ const applyRainbow = function( $element, paddingColor ){
             paddingColor
         ],
         animate: true,
-        animateInterval: 40,
+        animateInterval: 70,
         pad: true, 
         pauseLength: 5000,
     });

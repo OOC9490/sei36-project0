@@ -190,7 +190,7 @@ $(document).ready(function(){
     });
 
     $("#gamestart").on("click", function(){
-        $(this).css({"opacity":0, "pointer-events":"none"});
+        $(this).css({"display":"none"}).fadeOut(500);
         ui.buttonCheck( $(this).attr("value") );
     });
     
