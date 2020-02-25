@@ -89,7 +89,7 @@ button:hover{
 }
 
 .active{
-    color: navy;
+    color:#24bd24;
 }
 
 .disabled, .used{
@@ -120,6 +120,7 @@ button:hover{
     top: calc( 50% - 75px );
     left: calc( 50% - 125px );
     padding: 20px 40px;
+    transition: all 0.25s ease-in-out;
     font-size: 2em;
 }
 
