@@ -175,20 +175,15 @@ nav li:hover{
 #gameboard{
     width: 390px;
     height: 500px;
-    margin: auto;
+    margin: 1em auto 0;
     box-sizing: border-box;
-    position: absolute;
-    top: calc(50% - 250px);
-    left: calc(50% - 195px);
-    opacity: 0;
-    transition: all 2s ease-in-out;
     text-align: center;
 }
 
 .box{
     border: 2px solid #fff;
-    width: 100px;
-    height: 100px;
+    min-width: 100px;
+    min-height: 100px;
     display: inline-block;
     border-radius: 1rem;
     font-family: "Press Start 2P", Arial, Helvetica, sans-serif;
@@ -198,6 +193,8 @@ nav li:hover{
     font-size: 4em;
     box-sizing: border-box;
     margin: 0.5rem;
+    opacity: 0;
+    transition: opacity 2s ease-in-out;
 }
 
 .box:hover{
@@ -206,11 +203,9 @@ nav li:hover{
 
 #uimessages{
     font-size: 2em;
-    display: none;
-    position: absolute;
-    width: 100px;
-    top: calc(50% + 125px);
-    left: calc(50% - 50px);
+    width: 200px;
+    text-align: center;
+    margin: auto;
 }
 
 #results{

@@ -44,8 +44,7 @@ const ui ={
     startGame: function(){
         $('#uimessages').html(`Loading...`).fadeIn(250);
         setTimeout(function(){
-            $(".ingame").css({"opacity":1}).removeClass("disabled");
-            $("#gameboard").css({"opacity":1}).removeClass("disabled");
+            $(".ingame, #gameboard, .box").css({"opacity":1}).removeClass("disabled");
             ui.$audio[1].play();
             ui.playerTurnMsg(tictactoe.currentPlayer);
             tictactoe.started = true;

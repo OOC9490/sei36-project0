@@ -23,16 +23,14 @@ $(document).ready(function(){
         $(".hidden").fadeIn(1000);
         setTimeout(function(){
             $startupSound[0].play();
-            $(".postWelcome").css({"animation": "text-glow 3.5s linear"});
-            $(".welcome").css({"animation": "text-glow 3.5s linear"});
+            $(".postWelcome, .welcome").css({"animation": "text-glow 3.5s linear"});
             applyRainbow($(".welcome"),"#000080");
             $(".postWelcome").each(function(){
                 applyRainbow($(this),"#ffffff");
             });
-        },750);
+        },500);
         setTimeout(function(){
-            $(".welcome").pauseRainbow();
-            $(".postWelcome").each(function(){
+            $(".postWelcome, .welcome").each(function(){
                 $(this).pauseRainbow();
             });
         },3500);
