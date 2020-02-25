@@ -96,11 +96,11 @@ const ui ={
     },
 
     showOrHideScore: function( divId ){
-        if( $( divId ).width() <= ($(window).width() / 2)){
+        if( $( divId ).width() < $(".container").width()){
             $( divId ).css({"width":`${$(".container").width()}`});
             $(`.endGameOverlay`).css({"margin-left":"100vw"});
         }else{
-            $(divId).css({"width":"0"});
+            $( divId ).css({"width":"0"});
             $(`.endGameOverlay`).css({"margin-left":"0"});
         };
     },

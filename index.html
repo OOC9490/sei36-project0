@@ -5,26 +5,36 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Project 0 Arcade - Home</title>
     <link rel="stylesheet" href="css/style.css">
-</head>
-<body>
-    <audio id="startup" src="assets/original-GBA-startup.mp3"></audio>
-    <header>
-        <h1>Lawrence's Web Arcade</h1>
-        <nav>
-            <ul>
-                <li><a href="index.html">Home</a></li>
-                <li><a href="tictactoe.html">Tic Tac Toe</a></li>
-                <li><a href="pong.html">Pong</a></li>
-            </ul>
-        </nav>
-    </header>
-    <canvas id="homeBG"></canvas>
-    <!-- <canvas id="welcome"></canvas>    -->
-    <footer>
-        &copy; Lawrence Carreon 2020
-    </footer>
     <script src="js/jquery-3.4.1.js"></script>
-    <!-- <script src="js/home.js"></script> -->
+    <script src="js/rainbow.js"></script>
     <script src="js/home.js"></script>
+</head>
+<body class="home">
+    <audio src="assets/original-GBA-startup.mp3"></audio>
+    <div class="container">
+        <header class="hidden">
+            <h1>Lawrence's Web Arcade</h1>
+            <nav>
+                <ul>
+                    <li><a href="index.html">Home</a></li>
+                    <li><a href="tictactoe.html">Tic Tac Toe</a></li>
+                    <li><a href="pong.html">Pong</a></li>
+                </ul>
+            </nav>
+        </header>
+            <div class="clickbait">
+                <button>CLICK ME!</button>
+            </div>
+            <p class="welcome">
+               Welcome to:
+            </p>
+            <div class="postWelcome">
+                <p value="lineOne">SEI-36 Project 0</p>
+                <p value="lineTwo">Hope you enjoy!</p>
+            </div> 
+        <footer class="hidden">
+            &copy; Lawrence Carreon 2020
+        </footer>
+    </div>
 </body>
 </html>
