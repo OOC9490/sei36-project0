@@ -16,7 +16,7 @@ const tictactoe = {
             this.scoreCard[ winState ][ player ] += 1;
             if(this.scoreCard[ winState ][ player ] === 3){
                 return ui.endOfGameMsg(this.currentPlayer, this.drawCheck);
-            }
+            };
         };
         if(this.currentMoves === 9){
             this.drawCheck = true;

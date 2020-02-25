@@ -28,11 +28,15 @@ header{
     height: 110px;
 }
 
+/* Home page */
+
 canvas{
     background-color: #000;
 }
 
-/* Home page */
+#homeBG{
+    z-index: 10;
+}
 
 /* tic tac toe (mostly) */
 
