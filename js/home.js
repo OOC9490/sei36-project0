@@ -10,11 +10,12 @@ const applyRainbow = function( $element, paddingColor ){
             paddingColor
         ],
         animate: true,
-        animateInterval: 60,
+        animateInterval: 70,
         pad: true, 
         pauseLength: 5000,
     });
-}
+};
+
 
 $(document).ready(function(){
     const $startupSound = $("audio");
@@ -33,6 +34,6 @@ $(document).ready(function(){
             $(".postWelcome, .welcome").each(function(){
                 $(this).pauseRainbow();
             });
-        },3500);
+        },3000);
     });
 });
