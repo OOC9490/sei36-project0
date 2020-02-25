@@ -20,7 +20,7 @@ const tictactoe = {
         };
         if(this.currentMoves === 9){
             this.drawCheck = true;
-            return ui.endOfGameMsg(this.drawCheck);
+            return ui.endOfGameMsg(this.currentplayer, this.drawCheck);
         };
         this.currentPlayer = 1 - player;
         ui.playerTurnMsg(this.currentPlayer);
@@ -134,7 +134,7 @@ $(document).ready(function(){
         ui.$audio[2].play();
         if( tictactoe.started && $(this).hasClass("used") === false){
             ui.drawSymbol( tictactoe.currentPlayer, $(this));
-            tictactoe.currentmoves++;
+            tictactoe.currentMoves += 1;
             tictactoe.checkWinDraw( $(this).attr("id"), tictactoe.currentPlayer);
         };
     });
