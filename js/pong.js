@@ -62,7 +62,7 @@ class Pong{
         this.players[0].pos.x = 20; //Player1
         this.players[1].pos.x = canvas.width - 20;  //Player2
         this.players.forEach(player => player.pos.y = canvas.height / 2);
-        this.difficulty = "crazy";
+        this.difficulty = "easy";
         this.players[1].vel.y = 100;
         this.cpuSize = {
             easy: 40,
