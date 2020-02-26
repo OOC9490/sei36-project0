@@ -12,7 +12,7 @@ body{
 }
 
 footer{
-    padding: 1em 1em 1em 1.5em;
+    /* padding: 1em 1em 1em 1.5em; */
     font-size: 1.5em;
     background-color: black;
     width: 100%;
@@ -20,12 +20,13 @@ footer{
     box-sizing: border-box;
     letter-spacing: 0.1em;
     position: absolute;
+    text-align: center;
     bottom: 0;
 }
 
 header{
     background-color: #000;
-    height: 110px;
+    padding-bottom: 1vh;
     z-index: 5;
 }
 
@@ -34,6 +35,7 @@ h1{
     margin-top: 0;
     letter-spacing: 0.25em;
 }
+
 
 nav ul{
     padding: 0;
@@ -48,7 +50,7 @@ nav li{
     padding: 0.5em 2em;
     background-image: linear-gradient(white,slategray,white);
     border-radius: 1em;
-    margin: 0 0.5em;
+    margin: 1vh 1vh;
 }
 
 nav li a{
@@ -399,7 +401,75 @@ p{
     padding-left: 0;
 }
 
+#warning{
+    text-align: center;
+    background-color: #000;
+    font-size: 10vw;
+    z-index: 20;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    display: none;
+}
+
 /* responsive */
 @media only screen and (max-width: 960px){
+    /* .html{
+        margin-top: -5vh;
+    } */
 
+    .container{
+        width:100vw;
+        height:100vh;
+        text-shadow: 0 0 0 #000;
+    }
+
+    .welcome{
+        font-size: 8vh;
+    }
+
+    .postWelcome{
+        font-size: 4vh;
+    }
+
+    .socialMedia{
+        display: block;
+        position: relative;
+        /* text-align: center; */
+        margin-top: 1vh;
+    }
+
+    #results{
+        text-shadow: 0 0 0 0 #000;
+    }
+
+    #uimessages{
+        width: 100%;
+        display: inline-block;
+    }
+
+    footer{
+        text-align: center;
+    }
+
+    .wrapper .endGameOverlay .buttonholder{
+        position: relative;
+        top: 0;
+        left: 0;
+    }
+}
+
+/* For the pong page specifically */
+@media only screen and (max-width: 960px) and (orientation: portrait){
+    #warning{
+        display: block;
+    }
+}
+
+@media only screen and (max-width: 960px) and (orientation: landscape){
+    #warning{
+        display: none;
+    }
 }

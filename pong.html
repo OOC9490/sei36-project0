@@ -10,69 +10,75 @@
     <audio src="assets/bounce.wav" id="bounce"></audio>
     <audio src="assets/sm64_pause.wav" id="pause"></audio>
     <audio src="assets/pausemenu_close.wav" id="unpause"></audio>
-    <div class="endGameOverlay">
-        <header>
-            <h1>Lawrence's Web Arcade</h1>
-            <nav>
-                <ul>
-                    <li><a href="index.html">Home</a></li>
-                    <li><a href="tictactoe.html">Tic Tac Toe</a></li>
-                    <li class="disabled"><a class="active" href="pong.html">Pong</a></li>
-                </ul>
-            </nav>
-        </header>
+    <div class="wrapper">
+        <div class="endGameOverlay">
+            <header>
+                <h1>Lawrence's Web Arcade</h1>
+                <nav>
+                    <ul>
+                        <li><a href="index.html">Home</a></li>
+                        <li><a href="tictactoe.html">Tic Tac Toe</a></li>
+                        <li class="disabled"><a class="active" href="pong.html">Pong</a></li>
+                    </ul>
+                </nav>
+            </header>
+            <div class="buttonholder">
+                <button class="menu">
+                    Resume
+                </button>
+                <p>Difficulty: <span class="diffText"></span></p>
+                <button class="difficulty">easy</button>
+                <button class="difficulty">mid</button>
+                <button class="difficulty">crazy</button>
+            </div>
+            <footer>
+                &copy; Lawrence Carreon 2020
+                <div class="socialMedia">
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+                        <a href="https://twitter.com/LC_OoC">
+                        <path class="twitter" fill="#444444" d="M0,0v32h32V0H0z M22.4,12.7c0,0.1,0,0.3,0,0.4c0,4.3-3.3,9.3-9.3,9.3c-1.9,0-3.6-0.5-5-1.5
+                        c0.3,0,0.5,0,0.8,0c1.5,0,3-0.5,4.1-1.4c-1.4,0-2.6-1-3.1-2.3c0.2,0,0.4,0.1,0.6,0.1c0.3,0,0.6,0,0.9-0.1c-1.5-0.3-2.6-1.6-2.6-3.2
+                        c0,0,0,0,0,0c0.4,0.2,0.9,0.4,1.5,0.4c-0.9-0.6-1.5-1.6-1.5-2.7c0-0.6,0.2-1.2,0.4-1.7c1.6,2,4,3.3,6.8,3.4
+                        c-0.1-0.2-0.1-0.5-0.1-0.7c0-1.8,1.5-3.3,3.3-3.3c0.9,0,1.8,0.4,2.4,1c0.7-0.1,1.5-0.4,2.1-0.8c-0.2,0.8-0.8,1.4-1.4,1.8
+                        c0.7-0.1,1.3-0.3,1.9-0.5C23.6,11.7,23,12.3,22.4,12.7z"/>
+                        </a>
+                    </svg>
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                    <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+                        <a href="https://github.com/OOC9490">
+                        <path class="gitHub" fill="#444444" d="M0,0v32h32V0H0z M18.3,22.4c0,0-1.1,0.1-2.3,0.1s-2.3-0.1-2.3-0.1C10.9,22.1,8,21,8,16.2
+                        c0-1.4,0.5-2.5,1.3-3.4c-0.1-0.3-0.6-1.6,0.1-3.3c0,0,1.1-0.3,3.4,1.3c1-0.3,2.1-0.4,3.1-0.4c1.1,0,2.1,0.1,3.1,0.4
+                        c2.4-1.6,3.4-1.3,3.4-1.3c0.7,1.7,0.3,3,0.1,3.3c0.8,0.9,1.3,2,1.3,3.4C24,21,21.1,22.1,18.3,22.4z"/>
+                        </a>
+                    </svg>
+                    <?xml version="1.0" encoding="utf-8"?>
+                    <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
+                    <svg  version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
+                        width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
+                        <a href="https://www.linkedin.com/in/lpcarreon">
+                        <path class="linkedIn" fill="#444444" d="M0,0v32h32V0H0z M11.6,24H8.3V13.3h3.3V24z M9.9,11.9C8.9,11.9,8,11,8,9.9C8,8.9,8.9,8,9.9,8
+                        c1.1,0,1.9,0.9,1.9,1.9C11.8,11,11,11.9,9.9,11.9z M24,24h-3.3v-5.2c0-1.2,0-2.8-1.7-2.8c-1.7,0-2,1.3-2,2.7V24h-3.3V13.3h3.2v1.5h0
+                        c0.4-0.8,1.5-1.7,3.1-1.7c3.4,0,4,2.2,4,5.1V24z"/>
+                        </a>
+                    </svg>
+                </div>
+            </footer>
+        </div>
+        <canvas id="pong"></canvas>
         <div class="buttonholder">
             <button class="menu">
-                Resume
+                Menu
             </button>
-            <p>Difficulty: <span class="diffText"></span></p>
-            <button class="difficulty">easy</button>
-            <button class="difficulty">mid</button>
-            <button class="difficulty">crazy</button>
         </div>
-        <footer>
-            &copy; Lawrence Carreon 2020
-            <div class="socialMedia">
-                <?xml version="1.0" encoding="utf-8"?>
-                <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
-                    <a href="https://twitter.com/LC_OoC">
-                    <path class="twitter" fill="#444444" d="M0,0v32h32V0H0z M22.4,12.7c0,0.1,0,0.3,0,0.4c0,4.3-3.3,9.3-9.3,9.3c-1.9,0-3.6-0.5-5-1.5
-                    c0.3,0,0.5,0,0.8,0c1.5,0,3-0.5,4.1-1.4c-1.4,0-2.6-1-3.1-2.3c0.2,0,0.4,0.1,0.6,0.1c0.3,0,0.6,0,0.9-0.1c-1.5-0.3-2.6-1.6-2.6-3.2
-                    c0,0,0,0,0,0c0.4,0.2,0.9,0.4,1.5,0.4c-0.9-0.6-1.5-1.6-1.5-2.7c0-0.6,0.2-1.2,0.4-1.7c1.6,2,4,3.3,6.8,3.4
-                    c-0.1-0.2-0.1-0.5-0.1-0.7c0-1.8,1.5-3.3,3.3-3.3c0.9,0,1.8,0.4,2.4,1c0.7-0.1,1.5-0.4,2.1-0.8c-0.2,0.8-0.8,1.4-1.4,1.8
-                    c0.7-0.1,1.3-0.3,1.9-0.5C23.6,11.7,23,12.3,22.4,12.7z"/>
-                    </a>
-                </svg>
-                <?xml version="1.0" encoding="utf-8"?>
-                <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-                <svg version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
-                    <a href="https://github.com/OOC9490">
-                    <path class="gitHub" fill="#444444" d="M0,0v32h32V0H0z M18.3,22.4c0,0-1.1,0.1-2.3,0.1s-2.3-0.1-2.3-0.1C10.9,22.1,8,21,8,16.2
-                    c0-1.4,0.5-2.5,1.3-3.4c-0.1-0.3-0.6-1.6,0.1-3.3c0,0,1.1-0.3,3.4,1.3c1-0.3,2.1-0.4,3.1-0.4c1.1,0,2.1,0.1,3.1,0.4
-                    c2.4-1.6,3.4-1.3,3.4-1.3c0.7,1.7,0.3,3,0.1,3.3c0.8,0.9,1.3,2,1.3,3.4C24,21,21.1,22.1,18.3,22.4z"/>
-                    </a>
-                </svg>
-                <?xml version="1.0" encoding="utf-8"?>
-                <!DOCTYPE svg PUBLIC "-//W3C//DTD SVG 1.1//EN" "http://www.w3.org/Graphics/SVG/1.1/DTD/svg11.dtd">
-                <svg  version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" x="0px" y="0px"
-                    width="32px" height="32px" viewBox="0 0 32 32" enable-background="new 0 0 32 32" xml:space="preserve">
-                    <a href="https://www.linkedin.com/in/lpcarreon">
-                    <path class="linkedIn" fill="#444444" d="M0,0v32h32V0H0z M11.6,24H8.3V13.3h3.3V24z M9.9,11.9C8.9,11.9,8,11,8,9.9C8,8.9,8.9,8,9.9,8
-                    c1.1,0,1.9,0.9,1.9,1.9C11.8,11,11,11.9,9.9,11.9z M24,24h-3.3v-5.2c0-1.2,0-2.8-1.7-2.8c-1.7,0-2,1.3-2,2.7V24h-3.3V13.3h3.2v1.5h0
-                    c0.4-0.8,1.5-1.7,3.1-1.7c3.4,0,4,2.2,4,5.1V24z"/>
-                    </a>
-                </svg>
-            </div>
-        </footer>
     </div>
-    <canvas id="pong"></canvas>
-    <div class="buttonholder">
-        <button class="menu">
-            Menu
-        </button>
+    <!-- for mobile purposes -->
+    <div id="warning">
+        Please switch your device to landscape, to play pong.
     </div>
     <script src="js/jquery-3.4.1.js"></script>
     <script src="js/pong.js"></script>
