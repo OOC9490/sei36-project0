@@ -63,6 +63,11 @@ class Pong{
         this.players[1].pos.x = canvas.width - 20;  //Player2
         this.players.forEach(player => player.pos.y = canvas.height / 2);
         this.difficulty = "crazy";
+        this.cpuVel = {
+            easy: 75,
+            medium: 200,
+            crazy: "You don't stand a chance"
+        };
         let lastTime;
         const callback = (millis) => {
             if(lastTime && !this.paused){
@@ -164,9 +169,18 @@ class Pong{
         });
     };
 
+    // Computer player's movement
+    pcMove(difficulty, difInTime){
+        switch(difficulty){
+            case "crazy": return this.players[1].pos.y = this.ball.pos.y;
+            default: return this.players[1].pos.y += this.players[1].vel.y * difInTime;
+        };
+    };
+
     update(dt) {
         this.ball.pos.x += this.ball.vel.x * dt;
         this.ball.pos.y += this.ball.vel.y * dt;
+        this.pcMove(this.difficulty, dt);
     
         //collision detection with the edges of the canvas
         if( this.ball.left < 0 || this.ball.right > this.canvas.width){
@@ -181,11 +195,11 @@ class Pong{
             this.ball.vel.y = -this.ball.vel.y;
             $audio["bounce"].trigger("play");
         };
-        this.players[1].pos.y = this.ball.pos.y;
-        // if( this.players[1].top < 0 || this.players[1].bottom > this.canvas.height){
-        //     this.pla
-        //     this.players[1].vel.y = -this.players[1].vel.y;
-        // };
+        
+        if( this.players[1].top < 0 || this.players[1].bottom > this.canvas.height){
+            // this.players[1].pos.y = this.players[1].size.y / 4;
+            this.players[1].vel.y = -this.players[1].vel.y;
+        };
 
         this.players.forEach(player => this.hitPlayer( player, this.ball) );
         
@@ -223,8 +237,10 @@ $(".menu").on("click", function(){
     };
 });
 $(".difficulty").on("click", function(){
-    pong.difficulty = $(this).text();
-    $diffLevel.text($(this).text());
+    const level = $(this).text()
+    $diffLevel.text(level);
+    pong.difficulty = level;
+    pong.players[1].vel.y = pong.cpuVel[level];
 });
 
 
