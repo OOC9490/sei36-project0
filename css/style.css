@@ -225,14 +225,14 @@ button:hover{
 }
 
 .welcome{
-    font-size: 5em;
+    font-size: 7vw;
     text-shadow:0 0 10px #fff;
     letter-spacing: 0.5rem;
     color: #000080;
 }
 
 .postWelcome{
-    font-size: 3em;
+    font-size: 3vw;
     text-shadow: 0 0 10px #fff;
     letter-spacing: 0.25em;
     color: #ffffff;
