@@ -12,8 +12,6 @@ body{
 }
 
 footer{
-    position: absolute;
-    bottom: 0;
     padding: 1em 1em 1em 1.5em;
     font-size: 1.5em;
     background-color: black;
@@ -21,6 +19,8 @@ footer{
     height: 75px;
     box-sizing: border-box;
     letter-spacing: 0.1em;
+    position: absolute;
+    bottom: 0;
 }
 
 header{
@@ -73,6 +73,15 @@ nav li:hover{
     transition: 0.5s;
 }
 
+.smallContainer{
+    display:flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    width:75%;
+    margin: 100px auto 0;
+}
+
+
 button{
     background-image: linear-gradient(white,slategray,white);
     color:black;
@@ -98,14 +107,6 @@ button:hover{
 
 .hidden{
     display: none;
-}
-
-.smallContainer{
-    display:flex;
-    flex-wrap: wrap;
-    justify-content: center;
-    width:75%;
-    margin: 100px auto 0;
 }
 
 /* Home page */
@@ -305,9 +306,9 @@ p{
 /* pong */
 
 #pong{
-    width: 800px;
-    height: 600px;
-    position: absolute; 
-    top: calc( 50% - 300px);
-    left: calc( 50% - 400px);
+    width: 750px;
+    height: 500px;
+    border: 1px solid #fff;
+    margin: 0 auto;
+    display: block;
 }
