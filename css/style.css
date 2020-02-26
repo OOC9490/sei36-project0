@@ -313,6 +313,8 @@ p{
     display: block;
 }
 
-.pause{
-    
+.menu{
+    width: 50%;
+    padding: 1rem 0;
+    font-size: 3em;
 }

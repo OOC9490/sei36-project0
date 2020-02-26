@@ -213,6 +213,17 @@ $(document).ready(function(){
     $("audio").each(function(){
         $audio[$(this).attr("id")] = $(this);
     });
+    $(".menu").on("click", function(){
+        if(pong.paused){
+            $(".endGameOverlay").fadeOut(1000);
+            setTimeout(function(){
+                pong.paused = false;
+            },1500);
+        }else{
+            pong.paused = true;
+            $(".endGameOverlay").fadeIn(500);
+        };
+    });
 });
 
 
