@@ -63,11 +63,13 @@ class Pong{
         this.players[1].pos.x = canvas.width - 20;  //Player2
         this.players.forEach(player => player.pos.y = canvas.height / 2);
         this.difficulty = "crazy";
-        this.cpuVel = {
-            easy: 75,
-            medium: 200,
-            crazy: "You don't stand a chance"
+        this.players[1].vel.y = 100;
+        this.cpuSize = {
+            easy: 40,
+            medium: 80,
+            crazy: 40
         };
+
         let lastTime;
         const callback = (millis) => {
             if(lastTime && !this.paused){
@@ -243,7 +245,7 @@ $(".difficulty").on("click", function(){
     const level = $(this).text()
     $diffLevel.text(level);
     pong.difficulty = level;
-    pong.players[1].vel.y = pong.cpuVel[level];
+    pong.players[1].size.y = pong.cpuSize[level];
 });
 
 
