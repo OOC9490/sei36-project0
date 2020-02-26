@@ -65,8 +65,8 @@ class Pong{
         this.players[1].pos.x = canvas.width - 20;  //Player2
         this.players.forEach(player => player.pos.y = canvas.height / 2);
 
-        //AI speed
-        this.players[1].vel.y = 200;
+        // AI speed
+        // this.players[1].vel.y = 200;
 
         let lastTime;
         const callback = (millis) => {
@@ -135,6 +135,7 @@ class Pong{
         if( player.left < ball.right && player.right > ball.left && player.top < ball.bottom && player.bottom > ball.top ){
             const currentSpeed = ball.vel.length;
             ball.vel.x = -ball.vel.x;
+            ball.vel.y += 100 * (Math.random() - 0.5); // changes the angle the ball is bounced when hit by a paddle
             ball.vel.length = currentSpeed * 1.05; //increases the ball's speed every time a paddle hits it
             $audio["bounce"].trigger("play");
         };
