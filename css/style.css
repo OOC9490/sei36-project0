@@ -213,7 +213,7 @@ button:hover{
     left: calc( 50% - 125px );
     padding: 20px 40px;
     transition: all 0.25s ease-in-out;
-    font-size: 2em;
+    font-size: 3vh;
 }
 
 .clickbait button:hover{
@@ -225,7 +225,7 @@ button:hover{
 }
 
 .welcome{
-    font-size: 7vw;
+    font-size: 6vw;
     text-shadow:0 0 10px #fff;
     letter-spacing: 0.5rem;
     color: #000080;
@@ -284,7 +284,7 @@ p{
     min-height: 80px;
     border-radius: 1rem;
     font-family: "Press Start 2P", Arial, Helvetica, sans-serif;
-    font-size: 3em;
+    font-size: 5vh;
     box-sizing: border-box;
     margin: 0.5rem;
     opacity: 0;
@@ -367,7 +367,7 @@ p{
     position: absolute;
     top: 33%;
     left: 25%;
-    font-size: 3em;
+    font-size: 5vh;
     letter-spacing: 0.1em;
 }
 
