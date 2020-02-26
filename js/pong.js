@@ -66,7 +66,7 @@ class Pong{
         this.players[1].vel.y = 100;
         this.cpuSize = {
             easy: 40,
-            medium: 80,
+            mid: 80,
             crazy: 40
         };
 

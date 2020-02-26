@@ -10,7 +10,7 @@ const applyRainbow = function( $element, paddingColor ){
             paddingColor
         ],
         animate: true,
-        animateInterval: 70,
+        animateInterval: 50,
         pad: true, 
         pauseLength: 5000,
     });
@@ -20,11 +20,12 @@ const applyRainbow = function( $element, paddingColor ){
 $(document).ready(function(){
     const $startupSound = $("audio");
     $(".clickbait button").on("click", function(){
-        $(".clickbait").fadeOut(1000);
-        $(".hidden").fadeIn(1000);
+        $(".clickbait").fadeOut(500);
+        $(".hidden").fadeIn(500);
         setTimeout(function(){
-            $startupSound[0].play();
+            $startupSound.trigger("play");
             $(".postWelcome, .welcome").css({"animation": "text-glow 3.5s linear"});
+            $(".smallContainer").css({"animation":"bounce 3.5s ease"});
             applyRainbow($(".welcome"),"#000080");
             $(".postWelcome").each(function(){
                 applyRainbow($(this),"#ffffff");

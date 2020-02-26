@@ -59,7 +59,8 @@ nav li a{
 
 nav li:hover{
     box-shadow: 0 0 1em 0.25em lightskyblue;
-    transition: box-shadow 0.5s ease-in-out;    background-image: linear-gradient(slategray,white,slategray);
+    transition: box-shadow 0.5s ease-in-out;
+    background-image: linear-gradient(slategray,white,slategray);
 }
 
 .container{
@@ -79,7 +80,8 @@ nav li:hover{
     justify-content: center;
     width:75%;
     margin: 100px auto 0;
-}
+    text-align: center;
+    }
 
 .socialMedia{
     display: inline-block;
@@ -136,6 +138,65 @@ button:hover{
     display: none;
 }
 
+/* animations */
+
+@keyframes bounce{
+    0%{
+        transform: translateY(-100%);
+    }
+    5%{
+        transform: translateY(-90%);
+    }
+    15%{
+        transform: translateY(-75%);
+    }
+    30%{
+        transform: translateY(-50%);
+    }
+    40%{
+        transform: translateY(-25%);
+    }
+    50%{
+        transform: translateY(10%);
+    }
+    70%{
+        transform: translateY(25%);
+    }
+    80%{
+        transform: translateY(75%);
+    }
+    90%{
+        transform: translateY(-40%);
+    }
+    95%{
+        transform: translateY(40%);
+    }
+    97%{
+        transform: translateY(-25%);
+    }
+    99%{
+        transform: translateY(40%);
+    }
+    100%{
+        transform: translateY(25%);
+    }
+}
+
+@keyframes text-glow{
+    100%,0% {
+        text-shadow: 0 0 10px white;
+    }
+    30% {
+        text-shadow: 0 0 50px white;
+    }
+    50% {
+        text-shadow: 0 0 100px white;
+    }
+    80% {
+        text-shadow: 0 0 150px white;
+    }
+}
+
 /* Home page */
 
 .clickbait{
@@ -177,21 +238,6 @@ button:hover{
 
 p{
     margin:0;
-}
-
-@keyframes text-glow{
-    100%,0% {
-        text-shadow: 0 0 10px white;
-    }
-    30% {
-        text-shadow: 0 0 50px white;
-    }
-    50% {
-        text-shadow: 0 0 100px white;
-    }
-    80% {
-        text-shadow: 0 0 150px white;
-    }
 }
 
 /* tic tac toe (mostly) */
