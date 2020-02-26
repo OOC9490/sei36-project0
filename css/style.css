@@ -414,7 +414,7 @@ p{
     display: none;
 }
 
-/* responsive */
+/* responsive, main media query */
 @media only screen and (max-width: 800px){
     h1{
         display: none;
@@ -469,7 +469,7 @@ p{
     }
 }
 
-/* For the pong page specifically */
+/* For the pong page specifically, essentially forces landscape mode for mobiles */
 @media only screen and (max-width: 800px) and (orientation: portrait){
     #warning{
         display: block;

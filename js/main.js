@@ -190,6 +190,7 @@ $(document).ready(function(){
     $("audio").each(function(){
         ui.$audio[$(this).attr("id")] = $(this);
     });
+    
     $("button:not(#gamestart), .closebutton").on("click", function(){
         if(tictactoe.started){ui.$audio["press"].trigger("play");};
         ui.buttonCheck( $(this).attr("value") );
@@ -200,7 +201,7 @@ $(document).ready(function(){
         ui.buttonCheck( $(this).attr("value") );
     });
     
-    $(".box").on("click", function(){
+    $("#gameboard").on("click", "div[class*='box']", function(){
         ui.$audio["play"].trigger("play");
         if( tictactoe.started && $(this).hasClass("used") === false){
             ui.drawSymbol( tictactoe.currentPlayer, $(this));
