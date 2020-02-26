@@ -81,6 +81,33 @@ nav li:hover{
     margin: 100px auto 0;
 }
 
+.socialMedia{
+    display: inline-block;
+    position: absolute;
+    right: 1em;
+}
+
+svg{
+    margin: 0 0.25em;
+}
+
+.twitter{
+    fill: #1da1f2;
+}
+
+.gitHub{
+    fill: #ffffff;
+}
+
+.linkedIn{
+    fill: #0077b5;
+}
+
+.socialMedia svg:hover{
+    transform: scale(1.5);
+    -moz-transform: scale(1.5);;
+    transition: transform 0.5s ease-in-out;
+}
 
 button{
     background-image: linear-gradient(white,slategray,white);
