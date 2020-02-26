@@ -387,8 +387,8 @@ p{
 
 .menu{
     width: 50%;
-    padding: 1rem 0;
-    font-size: 2rem;
+    padding: 2vh 0;
+    font-size: 5vh;
 }
 
 .difficulty{
@@ -397,4 +397,9 @@ p{
     width: 150px;
     text-align: center;
     padding-left: 0;
+}
+
+/* responsive */
+@media only screen and (max-width: 960px){
+
 }

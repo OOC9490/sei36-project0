@@ -122,7 +122,7 @@ class Pong{
         this.ball.pos.y = this.canvas.height / 2;
         this.ball.vel.x = 0;
         this.ball.vel.y = 0;
-    };
+    }; //centres the ball after every score
 
     startBall(){
         if( this.ball.vel.x === 0 && this.ball.vel.y === 0){
@@ -131,7 +131,7 @@ class Pong{
             this.ball.vel.y = 75 * direction;
             this.ball.vel.length = 200;
         };
-    };
+    }; //gets the ball moving after a click, only if it is stationary
 
     hitPlayer(player, ball){
         if( player.left < ball.right && player.right > ball.left && player.top < ball.bottom && player.bottom > ball.top ){
