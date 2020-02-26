@@ -187,7 +187,6 @@ class Pong{
             this.ball.vel.x = -this.ball.vel.x;
             //scoring
             const playerId = this.ball.left < 0 ? 1 : 0;
-            $audio["bounce"].trigger("play");
             this.players[playerId].score += 1;
             this.resetBall();
         };
@@ -197,7 +196,11 @@ class Pong{
         };
         
         if( this.players[1].top < 0 || this.players[1].bottom > this.canvas.height){
-            // this.players[1].pos.y = this.players[1].size.y / 4;
+            if( this.players[1].top < 0){
+                this.players[1].pos.y += this.ball.size.y * 1.5;
+            }else{
+                this.players[1].pos.y -= this.ball.size.y * 1.5;
+            };//prevents the cpu player from going out of bounds when on "crazy" difficulty
             this.players[1].vel.y = -this.players[1].vel.y;
         };
 
