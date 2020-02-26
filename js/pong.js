@@ -74,6 +74,10 @@ class Pong{
         callback();
     };
 
+    collision(){
+
+    };
+
     boardRefresh(){
         this.context.fillStyle = "#000";
         this.context.fillRect(0, 0 , this.canvas.width, this.canvas.height);
@@ -92,7 +96,7 @@ class Pong{
         this.ball.pos.y += this.ball.vel.y * dt;
         this.players[1].pos.y += this.players[1].vel.y * dt;
     
-        //collision detection
+        //collision detection with the edges of the canvas
         if( this.ball.left < 0 || this.ball.right > this.canvas.width){
             this.ball.vel.x = -this.ball.vel.x;
         }
@@ -110,6 +114,10 @@ class Pong{
 //some setup stuff
 const canvas = document.getElementById("pong");
 const pong = new Pong(canvas);
+
+canvas.addEventListener("mousemove",function(event){
+    pong.players[0].pos.y = (event.offsetY / 4) + 10;
+})
 
 
 
