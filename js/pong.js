@@ -224,12 +224,19 @@ $(canvas).on("mousemove",function(event){
     pong.players[0].pos.y = (event.offsetY / 4);
 });
 
+//mobile support
+canvas.addEventListener("touchmove", function(event){
+    pong.players[0].pos.y = (event.touches[0].screenY / 4);
+});
+
 $(canvas).on("click", function(){
     pong.startBall();
 });
+
 $("audio").each(function(){
     $audio[$(this).attr("id")] = $(this);
 });
+
 $(".menu").on("click", function(){
     if(pong.paused){
         $(".endGameOverlay").fadeOut(250);
@@ -241,6 +248,7 @@ $(".menu").on("click", function(){
         $audio["pause"].trigger("play");
     };
 });
+
 $(".difficulty").on("click", function(){
     const level = $(this).text()
     $diffLevel.text(level);
