@@ -55,19 +55,14 @@ class Pong{
         this.context = canvas.getContext("2d");
         this.paused = false;
         this.ball = new Ball;
-
         this.players = [
             new Player,
             new Player
         ];
-        
         this.players[0].pos.x = 20; //Player1
         this.players[1].pos.x = canvas.width - 20;  //Player2
         this.players.forEach(player => player.pos.y = canvas.height / 2);
-
-        // AI speed
-        // this.players[1].vel.y = 200;
-
+        this.difficulty = "crazy";
         let lastTime;
         const callback = (millis) => {
             if(lastTime && !this.paused){
@@ -188,6 +183,7 @@ class Pong{
         };
         this.players[1].pos.y = this.ball.pos.y;
         // if( this.players[1].top < 0 || this.players[1].bottom > this.canvas.height){
+        //     this.pla
         //     this.players[1].vel.y = -this.players[1].vel.y;
         // };
 
@@ -199,8 +195,11 @@ class Pong{
 
 //some setup stuff
 const canvas = document.getElementById("pong");
+const $diffLevel = $(".diffText");
+
 const pong = new Pong(canvas);
 const $audio = {};
+$diffLevel.text(pong.difficulty);
 
 $(canvas).on("mousemove",function(event){
     pong.players[0].pos.y = (event.offsetY / 4);
@@ -209,23 +208,27 @@ $(canvas).on("mousemove",function(event){
 $(canvas).on("click", function(){
     pong.startBall();
 });
-
-$(document).ready(function(){
-    $("audio").each(function(){
-        $audio[$(this).attr("id")] = $(this);
-    });
-    $(".menu").on("click", function(){
-        if(pong.paused){
-            $(".endGameOverlay").fadeOut(250);
-            $audio["unpause"].trigger("play");
-            pong.paused = false;
-        }else{
-            pong.paused = true;
-            $(".endGameOverlay").fadeIn(500);
-            $audio["pause"].trigger("play");
-        };
-    });
+$("audio").each(function(){
+    $audio[$(this).attr("id")] = $(this);
 });
+$(".menu").on("click", function(){
+    if(pong.paused){
+        $(".endGameOverlay").fadeOut(250);
+        $audio["unpause"].trigger("play");
+        pong.paused = false;
+    }else{
+        pong.paused = true;
+        $(".endGameOverlay").fadeIn(500);
+        $audio["pause"].trigger("play");
+    };
+});
+$(".difficulty").on("click", function(){
+    pong.difficulty = $(this).text();
+    $diffLevel.text($(this).text());
+});
+
+
+
 
 
 

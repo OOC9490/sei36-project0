@@ -319,15 +319,12 @@ p{
     position: absolute;
     top: 33%;
     left: 25%;
+    font-size: 3em;
+    letter-spacing: 0.1em;
 }
 
 .endGameOverlay .buttonholder button{
     padding: 20px 50px;
-}
-
-#endGame{
-    font-size: 3em;
-    letter-spacing: 0.1em;
 }
 
 /* pong */
@@ -343,5 +340,13 @@ p{
 .menu{
     width: 50%;
     padding: 1rem 0;
-    font-size: 3em;
+    font-size: 2rem;
+}
+
+.difficulty{
+    display: block;
+    margin: 5px auto;
+    width: 150px;
+    text-align: center;
+    padding-left: 0;
 }
