@@ -10,7 +10,7 @@ const applyRainbow = function( $element, paddingColor ){
             paddingColor
         ],
         animate: true,
-        animateInterval: 50,
+        animateInterval: 70,
         pad: true, 
         pauseLength: 5000,
     });
@@ -26,9 +26,9 @@ $(document).ready(function(){
             $startupSound.trigger("play");
             $(".postWelcome, .welcome").css({"animation": "text-glow 3.5s linear"});
             $(".smallContainer").css({"animation":"bounce 3.5s ease"});
-            applyRainbow($(".welcome"),"#000080");
+            applyRainbow($(".welcome"),$(".welcome").css("color"));
             $(".postWelcome").each(function(){
-                applyRainbow($(this),"#ffffff");
+                applyRainbow($(this),$(this).css("color"));
             });
         },500);
         setTimeout(function(){

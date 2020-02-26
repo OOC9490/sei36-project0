@@ -78,7 +78,7 @@ nav li:hover{
     display:flex;
     flex-wrap: wrap;
     justify-content: center;
-    width:75%;
+    width:50%;
     margin: 100px auto 0;
     text-align: center;
     }
@@ -228,12 +228,14 @@ button:hover{
     font-size: 5em;
     text-shadow:0 0 10px #fff;
     letter-spacing: 0.5rem;
+    color: #000080;
 }
 
 .postWelcome{
     font-size: 3em;
     text-shadow: 0 0 10px #fff;
     letter-spacing: 0.25em;
+    color: #ffffff;
 }
 
 p{
