@@ -8,10 +8,11 @@ This is a repo containing my first project as a part of GA SEI-36. Other than de
 ## Technologies used
 * HTML
 * CSS
-* Javascript, jQuery, canvas
+* Javascript, jQuery
 
 ## What I learned
 * Better application of object-orientated programming (mostly via designing a browser application through canvas)
+* Improved my understanding of the power of classes
 * The use of canvas in HTML5
 * Better DRY coding
 * Better application of CSS
