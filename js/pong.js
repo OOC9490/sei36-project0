@@ -53,6 +53,7 @@ class Pong{
     constructor(canvas){
         this.canvas = canvas;
         this.context = canvas.getContext("2d");
+        this.paused = false;
         this.ball = new Ball;
 
         this.players = [
@@ -69,7 +70,7 @@ class Pong{
 
         let lastTime;
         const callback = (millis) => {
-            if(lastTime){
+            if(lastTime && !this.paused){
                 this.update((millis - lastTime) / 1000 );
             };
             lastTime = millis;
@@ -155,11 +156,11 @@ class Pong{
     
     //updating player scores
     drawScore(){
-        const align = this.canvas.width / 2;
+        const align = this.canvas.width / 3;
         const numberSpace = this.pxSize * 4;
         this.players.forEach((player,index) => {
             const chars = player.score.toString().split(""); //turn the players' scores to chars
-            const leftOffset = align * (index + 0.25) + (numberSpace * chars.length / 2) * this.pxSize / 30; //sets up the space to draw the numbers on
+            const leftOffset = align * (index + 0.75) + (numberSpace * chars.length / 2) * this.pxSize / 30; //sets up the space to draw the numbers on
             chars.forEach((char,position) => {
                 this.context.drawImage(this.pxPatterns[parseInt(char)],
                 leftOffset + position * numberSpace, 10);
@@ -201,7 +202,7 @@ const pong = new Pong(canvas);
 const $audio = {};
 
 $(canvas).on("mousemove",function(event){
-    pong.players[0].pos.y = (event.offsetY / 4) + 10;
+    pong.players[0].pos.y = (event.offsetY / 4);
 });
 
 $(canvas).on("click", function(){

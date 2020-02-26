@@ -306,9 +306,13 @@ p{
 /* pong */
 
 #pong{
-    width: 750px;
-    height: 500px;
+    width: 75%;
+    height: 75vh;
     border: 1px solid #fff;
     margin: 0 auto;
     display: block;
+}
+
+.pause{
+    
 }
