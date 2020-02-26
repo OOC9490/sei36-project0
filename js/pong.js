@@ -215,13 +215,13 @@ $(document).ready(function(){
     });
     $(".menu").on("click", function(){
         if(pong.paused){
-            $(".endGameOverlay").fadeOut(1000);
-            setTimeout(function(){
-                pong.paused = false;
-            },1500);
+            $(".endGameOverlay").fadeOut(250);
+            $audio["unpause"].trigger("play");
+            pong.paused = false;
         }else{
             pong.paused = true;
             $(".endGameOverlay").fadeIn(500);
+            $audio["pause"].trigger("play");
         };
     });
 });
