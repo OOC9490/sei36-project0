@@ -4,6 +4,14 @@ class Vector{
         this.x = x;
         this.y = y;
     };
+    get length(){
+        return Math.sqrt( this.x * this.x + this.y * this.y ); //hypotenuse
+    };
+    set length(value){
+        const factor = value / this.length;
+        this.x *= factor;
+        this.y *= factor;
+    };
 };
 
 class Rectangle{
@@ -46,10 +54,6 @@ class Pong{
         this.canvas = canvas;
         this.context = canvas.getContext("2d");
         this.ball = new Ball;
-        this.ball.pos.x = 100;
-        this.ball.pos.y = 50;
-        this.ball.vel.x = 100;
-        this.ball.vel.y = 100;
 
         this.players = [
             new Player,
@@ -61,7 +65,7 @@ class Pong{
         this.players.forEach(player => player.pos.y = canvas.height / 2);
 
         //AI speed
-        this.players[1].vel.y = 100;
+        this.players[1].vel.y = 200;
 
         let lastTime;
         const callback = (millis) => {
@@ -72,10 +76,30 @@ class Pong{
             requestAnimationFrame(callback);
         };
         callback();
+        this.resetBall();
     };
 
-    collision(){
+    resetBall(){
+        this.ball.pos.x = this.canvas.width / 2;
+        this.ball.pos.y = this.canvas.height / 2;
+        this.ball.vel.x = 0;
+        this.ball.vel.y = 0;
+    };
 
+    startBall(){
+        if( this.ball.vel.x === 0 && this.ball.vel.y === 0){
+            const direction = Math.random() < 0.5 ? 1 : -1;
+            this.ball.vel.x = 75 * direction;
+            this.ball.vel.y = 75 * direction;
+            this.ball.vel.length = 150;
+        };
+    };
+
+    hitPlayer(player, ball){
+        if( player.left < ball.right && player.right > ball.left && player.top < ball.bottom && player.bottom > ball.top ){
+            ball.vel.x = -ball.vel.x;
+            ball.vel.length *= 1.05; //increases the ball's speed every time a paddle hits it
+        };
     };
 
     boardRefresh(){
@@ -99,13 +123,20 @@ class Pong{
         //collision detection with the edges of the canvas
         if( this.ball.left < 0 || this.ball.right > this.canvas.width){
             this.ball.vel.x = -this.ball.vel.x;
-        }
+            //scoring
+            const playerId = this.ball.left < 0 ? 1 : 0;
+            this.players[playerId].score += 1;
+            console.log(this.players[playerId].score);
+            this.resetBall();
+        };
         if( this.ball.top < 0 || this.ball.bottom > this.canvas.height){
             this.ball.vel.y = -this.ball.vel.y;
-        }
+        };
         if( this.players[1].top < 0 || this.players[1].bottom > this.canvas.height){
             this.players[1].vel.y = -this.players[1].vel.y;
-        }
+        };
+
+        this.players.forEach(player => this.hitPlayer( player, this.ball) );
         
         this.boardRefresh();
     }; 
@@ -115,9 +146,13 @@ class Pong{
 const canvas = document.getElementById("pong");
 const pong = new Pong(canvas);
 
-canvas.addEventListener("mousemove",function(event){
+$(canvas).on("mousemove",function(event){
     pong.players[0].pos.y = (event.offsetY / 4) + 10;
-})
+});
+
+$(canvas).on("click", function(){
+    pong.startBall();
+});
 
 
 
