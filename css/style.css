@@ -98,7 +98,7 @@ button:hover{
 }
 
 .active{
-    color:#24bd24;
+    color:#0b690b;
 }
 
 .disabled, .used{
@@ -133,7 +133,7 @@ button:hover{
 }
 
 .clickbait button:focus{
-    color: #24bd24;
+    color: #0b690b;
 }
 
 .welcome{
