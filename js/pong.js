@@ -225,9 +225,29 @@ $(canvas).on("mousemove",function(event){
 });
 
 //mobile support
-canvas.addEventListener("touchmove", function(event){
-    pong.players[0].pos.y = (event.touches[0].screenY / 4);
-});
+function mobileDetected() {
+    const toMatch = [
+        /Android/i,
+        /webOS/i,
+        /iPhone/i,
+        /iPad/i,
+        /iPod/i,
+        /BlackBerry/i,
+        /Windows Phone/i
+    ];
+
+    return toMatch.some((toMatchItem) => {
+        return navigator.userAgent.match(toMatchItem);
+    });
+};
+
+//attaches a tap event to canvas if required
+if (mobileDetected()){
+    $(canvas).on("click",function(event){
+        pong.players[0].pos.y = event.offsetY / 2;
+    });
+}
+//end
 
 $(canvas).on("click", function(){
     pong.startBall();
