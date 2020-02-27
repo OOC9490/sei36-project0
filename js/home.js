@@ -18,6 +18,8 @@ const applyRainbow = function( $element, paddingColor ){
 
 
 $(document).ready(function(){
+    //isMobile query is just an assumption at this point
+    const isMobile = window.matchMedia("max-width: 767px").matches;
     const $startupSound = $("audio");
     $(".clickbait button").on("click", function(){
         $(".clickbait").fadeOut(500).addClass("disabled");
@@ -25,7 +27,10 @@ $(document).ready(function(){
         setTimeout(function(){
             $startupSound.trigger("play");
             $(".postWelcome, .welcome").css({"animation": "text-glow 3.5s linear"});
-            $(".smallContainer").css({"animation":"bounce 3.5s ease"});
+            if(!isMobile){
+                // omits the bouncing text animation if the device is considered a mobile device
+                $(".smallContainer").css({"animation":"bounce 3.5s ease"})
+            };
             applyRainbow($(".welcome"),$(".welcome").css("color"));
             $(".postWelcome").each(function(){
                 applyRainbow($(this),$(this).css("color"));
