@@ -36,7 +36,7 @@ class Rectangle{
 
 class Ball extends Rectangle{
     constructor(){
-        super(10,10);
+        super(6,6);
         this.vel = new Vector;
     };
 };
