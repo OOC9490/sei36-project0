@@ -5,6 +5,12 @@ This is a repo containing my first project as a part of GA SEI-36. Other than de
 
 [A screenshot of the tic tac toe page](https://imgur.com/QdlGQZ5 "Project 0 Tic Tac Toe")
 
+## Game Tips/ Known Bugs
+* Tic tac toe will always be played with a computer player (for now)
+* Pong has a menu which will give you access to the difficulty setting, as well as a full screen toggle (I would recommend playing in full screen on mobile device browsers)
+* Pong can only be played in landscape mode for mobiles
+* Pong's ball occasionally sticks to the player paddles, causing the ball to accelerate faster than normal!
+
 ## Technologies used
 * HTML
 * CSS
