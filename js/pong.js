@@ -226,7 +226,8 @@ $(canvas).on("mousemove",function(event){
 
 //mobile support
 canvas.addEventListener("touchmove", function(event){
-    pong.players[0].pos.y = (event.touches[0].screenY / 4);
+    pong.players[0].pos.y = (event.targetTouches[0].screenY / 3);
+    console.log(event);
 });
 
 //this is a generic full scren function, it will work for desktop browsers too, included for better mobile support
