@@ -36,7 +36,7 @@ class Rectangle{
 
 class Ball extends Rectangle{
     constructor(){
-        super(5,5);
+        super(10,10);
         this.vel = new Vector;
     };
 };
@@ -55,6 +55,7 @@ class Pong{
         this.context = canvas.getContext("2d");
         this.paused = false;
         this.ball = new Ball;
+        this.ballRadius = this.ball.size.x / 2; //going to be used to help with collision detection
         this.players = [
             new Player,
             new Player
@@ -201,9 +202,9 @@ class Pong{
         
         if( this.players[1].top < 0 || this.players[1].bottom > this.canvas.height){
             if( this.players[1].top < 0){
-                this.players[1].pos.y += this.ball.size.y * 1.5;
+                this.players[1].pos.y += this.ballRadius;
             }else{
-                this.players[1].pos.y -= this.ball.size.y * 1.5;
+                this.players[1].pos.y -= this.ballRadius;
             };//prevents the cpu player from going out of bounds when on "crazy" difficulty
             this.players[1].vel.y = -this.players[1].vel.y;
         };
