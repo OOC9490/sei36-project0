@@ -1,6 +1,6 @@
 // classes
 class Vector{
-    constructor(x = 0, y = 0){
+    constructor(x = 0, y = 0){ //assigning values here defaults to zero
         this.x = x;
         this.y = y;
     };
