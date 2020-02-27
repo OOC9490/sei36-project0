@@ -27,4 +27,5 @@ This is a repo containing my first project as a part of GA SEI-36. Other than de
 ## For the future
 (entries that are crossed off have been completed!)
 * Implementing an algorithmic AI
+* Using a css framework to help with managing CSS and by extension, decrease the amount of css I have to write myself
 * More games done on canvas!
