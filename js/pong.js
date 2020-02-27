@@ -5,7 +5,7 @@ class Vector{
         this.y = y;
     };
     get length(){
-        return Math.sqrt( this.x * this.x + this.y * this.y ); //hypotenuse
+        return Math.sqrt( this.x * this.x + this.y * this.y ); // hypotenuse of a triangle formula. This is used to normalise the speed of the ball based on the vertical and horizontal direction.
     };
     set length(value){
         const factor = value / this.length;
@@ -19,7 +19,7 @@ class Rectangle{
         this.pos = new Vector;
         this.size = new Vector(w,h);
     };
-    //use getters to be able to calculate the edges of the drawn shapes
+    //use getters to be able to calculate the edges of the objects that utilise this class to instantiate
     get left(){
         return this.pos.x - this.size.x / 2;
     };
@@ -63,7 +63,7 @@ class Pong{
         this.players[1].pos.x = canvas.width - 20;  //Player2
         this.players.forEach(player => player.pos.y = canvas.height / 2);
         this.difficulty = "easy";
-        this.players[1].vel.y = 100;
+        this.players[1].vel.y = 100; //how fast the AI moves
         this.cpuSize = {
             easy: 40,
             mid: 80,
@@ -76,13 +76,14 @@ class Pong{
                 this.update((millis - lastTime) / 1000 );
             };
             lastTime = millis;
-            requestAnimationFrame(callback);
+            requestAnimationFrame(callback); //a canvas method that loops the given function
         };
-        callback();
+        callback(); //callback needs to be called to begin the game
 
         //array for storing pixel patterns of scores
         //1 indicates a turned on array and 0 is off
         //these get converted to images for rendering
+        //each "row" of the are composed of a triplet of 0's and 1's
         this.pxSize = 5;
         this.pxPatterns = [
             "111101101101111",
@@ -97,8 +98,8 @@ class Pong{
             "111101111001111"
         ].map(pattern => {
             const canvas = document.createElement("canvas");
-            canvas.height = this.pxSize * 5;
-            canvas.width = this.pxSize * 3;
+            canvas.height = this.pxSize * 5; //height of the image to be made
+            canvas.width = this.pxSize * 3; //width of the image to be made
             const ctxt = canvas.getContext("2d");
             ctxt.fillStyle = "#fff";
             //filling the pixel with reference to the one or zero
@@ -143,6 +144,7 @@ class Pong{
         };
     };
 
+    //constantly clears, redraws the canvas and the given shapes
     boardRefresh(){
         this.context.fillStyle = "#000";
         this.context.fillRect(0, 0 , this.canvas.width, this.canvas.height);
@@ -151,7 +153,7 @@ class Pong{
         this.drawScore();
     };
 
-    // a generic function for drawing the ball
+    // a generic function for drawing rectangle-based objects
     drawRect(rect){
         this.context.fillStyle = "#fff";
         this.context.fillRect(rect.left, rect.top, rect.size.x, rect.size.y);
@@ -215,18 +217,19 @@ class Pong{
 //some setup stuff
 const canvas = document.getElementById("pong");
 const $diffLevel = $(".diffText");
-
-const pong = new Pong(canvas);
 const $audio = {};
+const pong = new Pong(canvas);
 $diffLevel.text(pong.difficulty);
 
 $(canvas).on("mousemove",function(event){
-    pong.players[0].pos.y = (event.offsetY / 4);
+    const scale = event.offsetY / event.target.getBoundingClientRect().height;
+    pong.players[0].pos.y = canvas.height * scale;
 });
 
 //mobile support
 canvas.addEventListener("touchmove", function(event){
-    pong.players[0].pos.y = (event.targetTouches[0].screenY / 2);
+    const scale = event.touches[0].screenY / event.touches[0].target.getBoundingClientRect().height;
+    pong.players[0].pos.y = canvas.height * scale;
     console.log(event);
 });
 

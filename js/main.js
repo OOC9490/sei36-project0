@@ -58,6 +58,7 @@ const tictactoe = {
             return true;
         };// this forces the most optimal move, taking the centre after a corner on the leading move, if the human doesn't take it
         const tilesNotFilled = Object.keys(this.tilesFilled).filter(key => this.tilesFilled[key] === false);
+        // scoreKeyArray stores the keys in scoreCard to be checked based on the conditions passed in
         const scoreKeyArray = Object.keys(this.scoreCard).filter(key => this.scoreCard[key][playerToCheck] === valueToCheck);
         if ( scoreKeyArray.length > 0){
             for(let i = 0; i < scoreKeyArray.length; i++){
@@ -65,12 +66,11 @@ const tictactoe = {
                 const affectedTiles = tilesNotFilled.filter(element => element.includes(tileId));
                 if( affectedTiles.length > lengthToCheck){
                     $(`#${affectedTiles[Math.floor( Math.random() * affectedTiles.length)]}`).click();
-                    this.aiHasMoved = true;
-                    return true; // causes aiTurn function to stop (to prevent the ai from making multiple moves)
+                    return this.aiHasMoved = true; // causes aiTurn function to stop (to prevent the ai from making multiple moves)
                 };
             };
-        };
-        return false; // lets aiTurn keep going 
+        };// confirms whether moving on a tile that match the gamestate being checked for is a viable move
+        return false; // lets aiTurn keep going if a move is not made
     },
 
     aiOpeningOrRandomMove: function(){
@@ -190,7 +190,7 @@ $(document).ready(function(){
     $("audio").each(function(){
         ui.$audio[$(this).attr("id")] = $(this);
     });
-    
+
     $("button:not(#gamestart), .closebutton").on("click", function(){
         if(tictactoe.started){ui.$audio["press"].trigger("play");};
         ui.buttonCheck( $(this).attr("value") );

@@ -10,7 +10,7 @@ const applyRainbow = function( $element, paddingColor ){
             paddingColor
         ],
         animate: true,
-        animateInterval: 70,
+        animateInterval: 80,
         pad: true, 
         pauseLength: 5000,
     });
@@ -35,6 +35,6 @@ $(document).ready(function(){
             $(".postWelcome, .welcome").each(function(){
                 $(this).pauseRainbow();
             });
-        },3000);
+        },3200);
     });
 });

@@ -1,7 +1,6 @@
 @import url('https://fonts.googleapis.com/css?family=Bangers|Press+Start+2P&display=swap');
 
 /* Generic stuff */
-
 body{
     margin: 0;
     background-color: black;
@@ -12,7 +11,6 @@ body{
 }
 
 footer{
-    /* padding: 1em 1em 1em 1.5em; */
     font-size: 1.5em;
     background-color: black;
     width: 100%;
