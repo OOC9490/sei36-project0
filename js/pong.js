@@ -225,29 +225,22 @@ $(canvas).on("mousemove",function(event){
 });
 
 //mobile support
-function mobileDetected() {
-    const toMatch = [
-        /Android/i,
-        /webOS/i,
-        /iPhone/i,
-        /iPad/i,
-        /iPod/i,
-        /BlackBerry/i,
-        /Windows Phone/i
-    ];
+canvas.addEventListener("touchmove", function(event){
+    pong.players[0].pos.y = (event.touches[0].screenY / 4);
+});
 
-    return toMatch.some((toMatchItem) => {
-        return navigator.userAgent.match(toMatchItem);
-    });
+//this is a generic full scren function, it will work for desktop browsers too, included for better mobile support
+const toggleFullScreen = function() {
+    if (!document.fullscreenElement) {
+      document.documentElement.requestFullscreen();
+    } else {
+      if (document.exitFullscreen) {
+        document.exitFullscreen(); 
+      }
+    }
 };
 
-//attaches a tap event to canvas if required
-if (mobileDetected()){
-    $(canvas).on("click",function(event){
-        pong.players[0].pos.y = event.offsetY / 2;
-    });
-}
-//end
+//mobile support end
 
 $(canvas).on("click", function(){
     pong.startBall();
@@ -274,6 +267,10 @@ $(".difficulty").on("click", function(){
     $diffLevel.text(level);
     pong.difficulty = level;
     pong.players[1].size.y = pong.cpuSize[level];
+});
+
+$("#fullscreen").on("click", function(){
+    toggleFullScreen();
 });
 
 

@@ -414,6 +414,11 @@ p{
     display: none;
 }
 
+#fullscreen{
+    display:block;
+    margin: 0 auto;
+}
+
 /* responsive, main media query */
 @media only screen and (max-width: 960px){
     h1{
