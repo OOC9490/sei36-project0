@@ -82,7 +82,7 @@ const tictactoe = {
             };
         });
         const $randomCornerTile = $cornerTiles[Math.floor( Math.random() * $cornerTiles.length )];
-        if(this.leadingPlayer === 1 && this.currentMoves < 1){
+        if(this.leadingPlayer === 1 && this.currentMoves <= 1){
             //The AI is the first to move, it will aim for the corners
             $randomCornerTile.click();
         }else{
