@@ -71,6 +71,7 @@ nav li:hover{
     background-color: black;
     border-radius: 1em;
     box-shadow: 0 0 2em 2em black;
+    transition: width 0.5s ease-out;
 }
 
 .smallContainer{

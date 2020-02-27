@@ -104,7 +104,7 @@ class Pong{
             canvas.width = this.pxSize * 3; //width of the image to be made
             const ctxt = canvas.getContext("2d");
             ctxt.fillStyle = "#fff";
-            //filling the pixel with reference to the one or zero
+            //filling the canvas with reference to the one or zero
             pattern.split("").forEach((fill, i) =>{
                 if( fill === "1" ){
                     ctxt.fillRect(
@@ -144,7 +144,7 @@ class Pong{
                 setTimeout(() => {
                     this.hitTopOrBottom = false;
                 },200);
-            };
+            }; // turns off hit detection briefly to prevent the ball from travelling "into the paddle"
             ball.vel.x = -ball.vel.x;
             ball.vel.y += 300 * (Math.random() - 0.5); // changes the angle the ball is bounced when hit by a paddle
             ball.vel.speed = currentSpeed * 1.05; //increases the ball's speed every time a paddle hits it
