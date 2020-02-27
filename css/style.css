@@ -71,7 +71,6 @@ nav li:hover{
     background-color: black;
     border-radius: 1em;
     box-shadow: 0 0 2em 2em black;
-    transition: 0.5s;
 }
 
 .smallContainer{
@@ -116,7 +115,7 @@ button{
     color:black;
     border-radius: 2em;
     margin: 5px 10px;
-    transition: all 0.5s ease-in-out;
+    transition: box-shadow 0.5s ease-in-out;
     font-family: "Press Start 2P", Arial, Helvetica, sans-serif;
 }
 
@@ -130,7 +129,7 @@ button:hover{
     color:#0b690b;
 }
 
-.disabled, .used{
+.disabled{
     pointer-events: none;
 }
 
@@ -212,7 +211,7 @@ button:hover{
     top: calc( 50% - 75px );
     left: calc( 50% - 125px );
     padding: 20px 40px;
-    transition: all 0.25s ease-in-out;
+    transition: color 0.25s ease-in-out;
     font-size: 3vh;
 }
 
@@ -313,7 +312,7 @@ p{
     background-color: #000;
     border-radius: 1em;
     box-shadow: 0 0 2em 2em black;
-    transition: 0.5s;
+    transition: width 0.5s ease-out;
     z-index: 10;
 }
 
@@ -323,7 +322,7 @@ p{
 }
 
 #score {
-    width: 100%;
+    width: 90%;
     border-collapse: collapse;
     text-align: center;
     margin-top: 42px;
@@ -430,13 +429,23 @@ p{
     }
 
     nav ul{
-        width: 100%;
-        margin: 0;
+        width: 75%;
+        margin: auto;
     }
 
     .endGameOverlay .buttonholder button{
         padding: 5px 50px;
         text-align: center;
+    }
+
+    .buttonholder{
+        width: 90%;
+    }
+
+    .wrapper .endGameOverlay .buttonholder{
+        position: relative;
+        top: 0;
+        left: 0;
     }
 
     .welcome{
@@ -445,17 +454,6 @@ p{
 
     .postWelcome{
         font-size: 4vh;
-    }
-
-    .buttonholder{
-        width: 90%;
-    }
-
-    .socialMedia{
-        display: block;
-        position: relative;
-        /* text-align: center; */
-        margin-top: 1vh;
     }
 
     #gameboard{
@@ -475,10 +473,14 @@ p{
         text-align: center;
     }
 
-    .wrapper .endGameOverlay .buttonholder{
-        position: relative;
-        top: 0;
-        left: 0;
+    .socialMedia{
+        display:block;
+        margin: 1vh auto 0;
+        right: calc( 50% - 75px);
+    }
+
+    .buttonholder{
+        width: 90%;
     }
 }
 

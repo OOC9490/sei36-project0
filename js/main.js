@@ -118,12 +118,12 @@ const ui ={
     restart: function(){
         $(".endGameOverlay").fadeOut(1000).addClass("disabled");
         $("#gameboard").removeClass("disabled");
-        $(".box").removeClass("used").html("");
+        $(".box").removeClass("disabled").html("");
         tictactoe.resetGame();
     },
 
     drawSymbol: function( player, $boxPressed ){
-        $boxPressed.addClass("used");
+        $boxPressed.addClass("disabled");
         $boxPressed.html(`${this.players[player]}`);
     },
 
@@ -203,7 +203,7 @@ $(document).ready(function(){
     
     $("#gameboard").on("click", "div[class*='box']", function(){
         ui.$audio["play"].trigger("play");
-        if( tictactoe.started && $(this).hasClass("used") === false){
+        if( tictactoe.started && $(this).hasClass("disabled") === false){
             ui.drawSymbol( tictactoe.currentPlayer, $(this));
             tictactoe.currentMoves += 1;
             tictactoe.checkWinDraw( $(this).attr("id"), tictactoe.currentPlayer);

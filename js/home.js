@@ -20,7 +20,7 @@ const applyRainbow = function( $element, paddingColor ){
 $(document).ready(function(){
     const $startupSound = $("audio");
     $(".clickbait button").on("click", function(){
-        $(".clickbait").fadeOut(500);
+        $(".clickbait").fadeOut(500).addClass("disabled");
         $(".hidden").fadeIn(500);
         setTimeout(function(){
             $startupSound.trigger("play");
