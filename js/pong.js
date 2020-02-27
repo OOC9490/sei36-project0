@@ -226,7 +226,7 @@ $(canvas).on("mousemove",function(event){
 
 //mobile support
 canvas.addEventListener("touchmove", function(event){
-    pong.players[0].pos.y = (event.targetTouches[0].screenY / 3);
+    pong.players[0].pos.y = (event.targetTouches[0].screenY / 2);
     console.log(event);
 });
 
