@@ -21,7 +21,7 @@ $(document).ready(function(){
     //isMobile query is just an assumption about the max-width of the browser
     const isMobile = window.matchMedia("(max-width: 767px)").matches;
     const $startupSound = $("audio");
-    $(".clickbait button").on("click", function(){
+    $(".clickbait").on("click", "button", function(){
         $(".clickbait").fadeOut(500).addClass("disabled");
         $(".hidden").fadeIn(500);
         setTimeout(function(){
