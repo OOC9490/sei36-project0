@@ -4,11 +4,11 @@ class Vector{
         this.x = x;
         this.y = y;
     };
-    get length(){
+    get speed(){
         return Math.sqrt( this.x * this.x + this.y * this.y ); // hypotenuse of a triangle formula. This is used to normalise the speed of the ball based on the vertical and horizontal direction.
     };
-    set length(value){
-        const factor = value / this.length;
+    set speed(value){
+        const factor = value / this.speed;
         this.x *= factor;
         this.y *= factor;
     };
@@ -36,7 +36,7 @@ class Rectangle{
 
 class Ball extends Rectangle{
     constructor(){
-        super(6,6);
+        super(8,8);
         this.vel = new Vector;
     };
 };
@@ -56,6 +56,7 @@ class Pong{
         this.paused = false;
         this.ball = new Ball;
         this.ballRadius = this.ball.size.x / 2; //going to be used to help with collision detection
+        this.hitTopOrBottom = false;
         this.players = [
             new Player,
             new Player
@@ -131,16 +132,22 @@ class Pong{
             const direction = Math.random() < 0.5 ? 1 : -1;
             this.ball.vel.x = 75 * direction;
             this.ball.vel.y = 75 * direction;
-            this.ball.vel.length = 200;
+            this.ball.vel.speed = 200;
         };
     }; //gets the ball moving after a click, only if it is stationary
 
     hitPlayer(player, ball){
-        if( player.left < ball.right && player.right > ball.left && player.top < ball.bottom && player.bottom > ball.top ){
-            const currentSpeed = ball.vel.length;
+        if( player.left < ball.right && player.right > ball.left && player.top < ball.bottom && player.bottom > ball.top && this.hitTopOrBottom === false){
+            const currentSpeed = ball.vel.speed;
+            if( player.top < ball.bottom || player.bottom > ball.top ){
+                this.hitTopOrBottom = true;
+                setTimeout(() => {
+                    this.hitTopOrBottom = false;
+                },200);
+            };
             ball.vel.x = -ball.vel.x;
             ball.vel.y += 300 * (Math.random() - 0.5); // changes the angle the ball is bounced when hit by a paddle
-            ball.vel.length = currentSpeed * 1.05; //increases the ball's speed every time a paddle hits it
+            ball.vel.speed = currentSpeed * 1.05; //increases the ball's speed every time a paddle hits it
             $audio["bounce"].trigger("play");
         };
     };
@@ -223,6 +230,7 @@ const pong = new Pong(canvas);
 $diffLevel.text(pong.difficulty);
 
 $(canvas).on("mousemove",function(event){
+    //scale helps align the player's pointer/ tap position with their paddle
     const scale = event.offsetY / event.target.getBoundingClientRect().height;
     pong.players[0].pos.y = canvas.height * scale;
 });
@@ -234,7 +242,7 @@ canvas.addEventListener("touchmove", function(event){
     console.log(event);
 });
 
-//this is a generic full scren function, it will work for desktop browsers too, included for better mobile support
+//this is a generic full screen function, it will work for desktop browsers too, included for better mobile support
 const toggleFullScreen = function($button) {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen();
@@ -279,9 +287,3 @@ $(".difficulty").on("click", function(){
 $("#fullscreen").on("click", function(){
     toggleFullScreen($(this));
 });
-
-
-
-
-
-
