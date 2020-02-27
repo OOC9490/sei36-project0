@@ -231,12 +231,14 @@ canvas.addEventListener("touchmove", function(event){
 });
 
 //this is a generic full scren function, it will work for desktop browsers too, included for better mobile support
-const toggleFullScreen = function() {
+const toggleFullScreen = function($button) {
     if (!document.fullscreenElement) {
       document.documentElement.requestFullscreen();
+        $button.text("exit fullscreen")
     } else {
       if (document.exitFullscreen) {
         document.exitFullscreen(); 
+        $button.text("fullscreen")
       }
     }
 };
@@ -271,7 +273,7 @@ $(".difficulty").on("click", function(){
 });
 
 $("#fullscreen").on("click", function(){
-    toggleFullScreen();
+    toggleFullScreen($(this));
 });
 
 
