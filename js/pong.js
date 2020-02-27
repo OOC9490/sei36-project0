@@ -5,8 +5,8 @@ class Vector{
         this.y = y;
     };
     get speed(){
-        return Math.sqrt( this.x * this.x + this.y * this.y ); // hypotenuse of a triangle formula. This is used to normalise the speed of the ball based on the vertical and horizontal direction.
-    };
+        return Math.sqrt( this.x * this.x + this.y * this.y ); 
+    }; // hypotenuse of a triangle formula. This is used to normalise the speed of the ball based on the vertical and horizontal direction of the ball.
     set speed(value){
         const factor = value / this.speed;
         this.x *= factor;
@@ -73,14 +73,14 @@ class Pong{
         };
 
         let lastTime;
-        const callback = (millis) => {
+        const updateLoop = (milliseconds) => {
             if(lastTime && !this.paused){
-                this.update((millis - lastTime) / 1000 );
+                this.update((milliseconds - lastTime) / 1000 );
             };
-            lastTime = millis;
-            requestAnimationFrame(callback); //a canvas method that loops the given function
+            lastTime = milliseconds;
+            requestAnimationFrame(updateLoop); //a canvas method that loops the given function
         };
-        callback(); //callback needs to be called to begin the game
+        updateLoop(); //updateLoop needs to be called to begin the game
 
         //array for storing pixel patterns of scores
         //1 indicates a turned on array and 0 is off
@@ -167,7 +167,7 @@ class Pong{
         this.context.fillRect(rect.left, rect.top, rect.size.x, rect.size.y);
     };
     
-    //updating player scores
+    //updating player scores on the canvas
     drawScore(){
         const align = this.canvas.width / 3;
         const numberSpace = this.pxSize * 4;
