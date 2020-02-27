@@ -293,6 +293,8 @@ p{
 
 .box:hover{
     box-shadow: 0 0 0.5em 0.1em lightskyblue;
+    background-image: url(../assets/navi-gif-9.gif);
+    background-size: contain;
 }
 
 #uimessages{
