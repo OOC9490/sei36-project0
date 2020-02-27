@@ -19,7 +19,7 @@ const applyRainbow = function( $element, paddingColor ){
 
 $(document).ready(function(){
     //isMobile query is just an assumption about the max-width of the browser
-    const isMobile = window.matchMedia("max-width: 767px").matches;
+    const isMobile = window.matchMedia("(max-width: 767px)").matches;
     const $startupSound = $("audio");
     $(".clickbait button").on("click", function(){
         $(".clickbait").fadeOut(500).addClass("disabled");
