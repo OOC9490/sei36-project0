@@ -251,8 +251,8 @@ const toggleFullScreen = function($button) {
       if (document.exitFullscreen) {
         document.exitFullscreen(); 
         $button.text("fullscreen")
-      }
-    }
+      };
+    };
 };
 
 //mobile support end
